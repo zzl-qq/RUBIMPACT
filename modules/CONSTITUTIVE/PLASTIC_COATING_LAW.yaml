@@ -1,0 +1,27 @@
+module:
+  id: "PLASTIC_COATING_LAW"
+  category: CONSTITUTIVE
+  description: "一维 PCL 返回映射 + 线性各向同性硬化。定义材料参数 (E, Y, K_plas)"
+  lifecycle:
+    phase: RUNTIME
+    required: false
+    order_after: [COATING]
+  requires_keywords: [COATING]
+  conflicts_with: []
+  accepts_children:
+    hardening:
+      candidates: ["LINEAR_ISOTROPIC"]
+      cardinality: 0
+      description: "硬化模型（目前仅线性各向同性）"
+    wear_law:
+      candidates: ["PLASTIC_STRAIN", "NONE"]
+      cardinality: 0
+      description: "磨损模型。NONE 表示禁用磨损"
+    wear_distributor:
+      candidates: ["BILINEAR_WEIGHT"]
+      cardinality: 0
+      description: "磨损分配方式"
+    state_updater:
+      candidates: ["PLASTIC_STRAIN_RATIO"]
+      cardinality: 0
+      description: "状态更新方式"

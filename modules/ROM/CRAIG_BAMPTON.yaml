@@ -1,0 +1,8 @@
+module:
+  id: "CRAIG_BAMPTON"
+  category: ROM
+  lifecycle:
+    phase: INIT
+    required: false
+    order_after: [MATRIX_ASSEMBLY]
+  requires_keywords: [MATRIX_ASSEMBLY]

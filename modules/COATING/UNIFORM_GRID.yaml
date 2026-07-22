@@ -1,0 +1,9 @@
+module:
+  id: "UNIFORM_GRID"
+  category: COATING
+  description: "均匀厚度可磨耗涂层网格。主状态 ep (塑性应变)，派生量 h = h_coat·(1−ep)"
+  lifecycle:
+    phase: INIT
+    required: false
+    order_after: [CASING]
+  requires_keywords: [CASING]

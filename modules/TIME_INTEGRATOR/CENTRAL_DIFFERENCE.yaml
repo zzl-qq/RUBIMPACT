@@ -1,0 +1,18 @@
+module:
+  id: "CENTRAL_DIFFERENCE"
+  category: TIME_INTEGRATOR
+  description: "显式中心差分时间积分：predict → detect → assemble → correct → advance"
+  lifecycle:
+    phase: RUNTIME
+    required: true
+    order_after: [ROM, FORCE_ASSEMBLER]
+  requires_keywords: [ROM, FORCE_ASSEMBLER]
+  accepts_children:
+    predictor:
+      candidates: ["LINEAR"]
+      cardinality: 1
+      description: "预测器"
+    corrector:
+      candidates: ["CONTACT_CONSTRAINED"]
+      cardinality: 1
+      description: "修正器"

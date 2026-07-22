@@ -1,0 +1,22 @@
+module:
+  id: "PENETRATION_BASED"
+  category: CONTACT_DETECTOR
+  description: "基于间隙函数的穿透检测：运动学 → 机匣半径 → 涂层插值 → 间隙计算"
+  lifecycle:
+    phase: RUNTIME
+    required: true
+    order_after: [CASING, COATING]
+  requires_keywords: []
+  accepts_children:
+    kinematics:
+      candidates: ["RIGID_ROTATION_PLUS_VIBRATION"]
+      cardinality: 1
+      description: "旋转运动学"
+    interpolator:
+      candidates: ["BILINEAR", "BICUBIC_BSPLINE"]
+      cardinality: 1
+      description: "涂层插值算法"
+    gap_function:
+      candidates: ["DEFAULT"]
+      cardinality: 1
+      description: "间隙计算"

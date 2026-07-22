@@ -1,0 +1,6 @@
+module:
+  id: "EXTERNAL_DATA"
+  category: EXTERNAL_DATA
+  lifecycle:
+    phase: INIT
+    required: true

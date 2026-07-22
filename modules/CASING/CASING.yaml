@@ -1,0 +1,18 @@
+module:
+  id: "CASING"
+  category: CASING
+  description: "机匣几何定义：轴向形状 (axial_shape) + 周向形状 (circumferential_shape) 组合"
+  lifecycle:
+    phase: INIT
+    required: false
+    order_after: [EXTERNAL_DATA]
+  requires_keywords: []
+  accepts_children:
+    axial_shape:
+      candidates: ["CYLINDRICAL", "AXIAL_TAPER"]
+      cardinality: 1
+      description: "轴向形状：CYLINDRICAL=R₀, AXIAL_TAPER=R₀+slope·x"
+    circumferential_shape:
+      candidates: ["UNIFORM", "LOBE"]
+      cardinality: 0
+      description: "周向形状：UNIFORM=常半径, LOBE=d₀·sin(N_lobe·θ)"

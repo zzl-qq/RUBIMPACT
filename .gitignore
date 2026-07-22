@@ -1,0 +1,42 @@
+# Large binary files
+*.pdf
+
+# Extracted text (derived artifacts)
+*2015.txt
+*2012.txt
+
+# CodeGraph
+.codegraph/
+
+# Pixi sandbox
+.pixi/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Test cache
+.pytest_cache/
+
+# Claude file
+.claude/
+CLAUDE.md
+
+# Simulation outputs
+input/
+process/
+debug_contact/
+
+# Large data files
+*.npz
+*.mtx
+# HDF5 output
+*.h5
+
+# Log file
+rubimpact.log
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+nuitka-crash-report.xml
+modules_backup/

@@ -1,0 +1,8 @@
+module:
+  id: "DYNAMIC_RELAXATION"
+  category: DYNAMIC_RELAXATION
+  lifecycle:
+    phase: INIT
+    required: false
+    order_after: [ROM]
+  requires_keywords: [ROM, FORCE_ASSEMBLER]

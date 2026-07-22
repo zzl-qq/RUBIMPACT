@@ -1,0 +1,31 @@
+[workspace]
+authors = ["zzl <2060160747@qq.com>"]
+channels = ["conda-forge"]
+name = "RMBOPCL"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[activation.env]
+PYTHONPATH = "src"
+# --- MKL / OpenMP thread control (for pypardiso PARDISO factorization) ---
+# Default 1-core (safe).  Override at runtime with --cores N or RMBOPCL_CORES env var.
+MKL_NUM_THREADS = "1"
+OMP_NUM_THREADS = "1"
+MKL_DYNAMIC = "FALSE"
+KMP_BLOCKTIME = "0"
+
+[tasks]
+rubimpact = "python -OO -m rubimpact.cli"
+
+[dependencies]
+python = "3.12.*"
+numpy = ">=2.4.6,<3"
+scipy = ">=1.18.0,<2"
+pypardiso = ">=0.4.7,<0.5"
+numba = ">=0.66.0,<0.67"
+h5py = ">=3.16.0,<4"
+pyyaml = ">=6.0.3,<7"
+pytest = ">=9.1.1,<10"
+
+[pypi-dependencies]
+matplotlib = ">=3.11.1, <4"

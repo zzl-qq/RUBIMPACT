@@ -1,0 +1,22 @@
+module:
+  id: "MATRIX_ASSEMBLY"
+  category: MATRIX_ASSEMBLY
+  description: "质量/刚度/阻尼矩阵组装：M, K(Ω), D"
+  lifecycle:
+    phase: INIT
+    required: true
+    order_after: [EXTERNAL_DATA]
+  requires_keywords: [EXTERNAL_DATA]
+  accepts_children:
+    mass:
+      candidates: ["ORIGINAL"]
+      cardinality: 1
+      description: "质量矩阵类型"
+    stiffness:
+      candidates: ["DIRECT", "CENTRIFUGAL_POLY"]
+      cardinality: 1
+      description: "刚度矩阵类型。CENTRIFUGAL_POLY 添加离心刚化"
+    damping:
+      candidates: ["RAYLEIGH", "NONE"]
+      cardinality: 0
+      description: "阻尼矩阵类型"

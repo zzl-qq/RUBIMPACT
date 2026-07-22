@@ -1,0 +1,24 @@
+module:
+  id: "FORCE_ASSEMBLER"
+  category: FORCE_ASSEMBLER
+  description: "聚合接触力、摩擦力、气动力、惯性力，分解并映射到 ROM 空间"
+  lifecycle:
+    phase: RUNTIME
+    required: true
+    order_after: [CONTACT_DETECTOR, CONSTITUTIVE]
+  requires_keywords: [CONTACT_DETECTOR]
+  accepts_children:
+    contact_force:
+      candidates: ["PCL_CONTACT", "PENALTY"]
+      cardinality: 1
+      description: "法向接触力模型。PCL_CONTACT 需要涂层，PENALTY 为纯罚刚度"
+    friction_force:
+      candidates: ["COULOMB", "STRIBECK"]
+      cardinality: 1
+      description: "切向摩擦力模型。均为 F_n 的纯函数"
+    aerodynamic_force:
+      candidates: ["STEADY_AERO"]
+      cardinality: 0
+    inertial_force:
+      candidates: ["RIGID_ROTATION"]
+      cardinality: 0
